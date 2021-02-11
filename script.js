@@ -1,13 +1,13 @@
 const canvas = document.createElement('canvas')
-canvas.width = 720, canvas.height = 480
+canvas.width = 960, canvas.height = 640
 
 const ctx = canvas.getContext('2d')
 
-let stage = new Array(24).fill(null).map(() => new Array(36).fill(false))
+let stage = new Array(32).fill(null).map(() => new Array(64).fill(false))
 
 const render = () => {
-    for (let i = 0; i < 24; i++) {
-        for (let j = 0; j < 36; j++) {
+    for (let i = 0; i < 32; i++) {
+        for (let j = 0; j < 64; j++) {
             if (stage[i][j]) ctx.fillRect((j - 1) * 20, (i - 1) * 20, 20, 20)
         }
     }
