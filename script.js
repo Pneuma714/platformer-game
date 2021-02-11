@@ -52,4 +52,6 @@ canvas.addEventListener('mousemove', evt => {
     cursor = { x, y }
 })
 
+setInterval(render, 10)
+
 document.body.appendChild(canvas)
