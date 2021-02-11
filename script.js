@@ -11,6 +11,8 @@ const render = () => {
             if (stage[i][j]) ctx.fillRect((j - 1) * 20, (i - 1) * 20, 20, 20)
         }
     }
+
+    ctx.strokeRect(x, y, 20, 20)
 }
 
 // Edit
@@ -53,5 +55,26 @@ canvas.addEventListener('mousemove', evt => {
 })
 
 setInterval(render, 10)
+
+// Controls
+
+let x = 480, y = 320, isJumping = false, keyStatus = [], velocityX = 0, velocityY = 0
+
+document.body.addEventListener('keydown', evt => {
+    keyStatus[evt.key] = true
+})
+
+document.addEventListener('keyup', evt => {
+    keyStatus[evt.key] = false
+})
+
+setInterval(() => {
+    if (keyStatus['a']) velocityX += -1
+    if (keyStatus['d']) velocityX += 1
+
+    velocityX *= 0.9
+
+    x += velocityX
+}, 10)
 
 document.body.appendChild(canvas)
