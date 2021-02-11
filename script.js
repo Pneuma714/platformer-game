@@ -6,6 +6,8 @@ const ctx = canvas.getContext('2d')
 let stage = new Array(32).fill(null).map(() => new Array(64).fill(false))
 
 const render = () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+
     for (let i = 0; i < 32; i++) {
         for (let j = 0; j < 64; j++) {
             if (stage[i][j]) ctx.fillRect((j - 1) * 20, (i - 1) * 20, 20, 20)
