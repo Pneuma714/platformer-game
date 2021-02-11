@@ -27,7 +27,7 @@ canvas.addEventListener('mousedown', evt => {
     console.log('Mouse is down')
     
     let pos = getMousePosition(evt)
-    let x = Math.ceil(pos.x / 5), y = Math.ceil(pos.y / 5)
+    let x = Math.ceil(pos.x / 20), y = Math.ceil(pos.y / 20)
 
     stage[y][x] = true
     console.log(`Toggled cell at (${x}, ${y})`)
@@ -42,7 +42,7 @@ canvas.addEventListener('mouseup', evt => {
 
 canvas.addEventListener('mousemove', evt => {
     let pos = getMousePosition(evt)
-    let x = Math.ceil(pos.x / 5), y = Math.ceil(pos.y / 5)
+    let x = Math.ceil(pos.x / 20), y = Math.ceil(pos.y / 20)
 
     if (isMouseDown && (cursor.x !== x || cursor.y !== y)) {
         stage[y][x] = true
